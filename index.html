@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anuja A. Gokhale — Research Portfolio</title>
+<meta name="description" content="Applied macroeconomics research portfolio — monetary policy transmission, inflation dynamics, and cross-border spillovers.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1208;--cream:#faf6f0;--parch:#f3ede3;--border:#d4c4a8;
+  --navy:#1B2A4A;--rust:#c4522e;--gold:#b8860b;--sage:#4a6741;
+  --plum:#7a4d8a;--teal:#3d8a7a;--mid:#555;--lite:#888;--white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:14px;line-height:1.6}
+.page{max-width:760px;margin:0 auto;padding:0 0 60px}
+
+/* NAV */
+.topnav{background:var(--navy);padding:12px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.topnav-name{font-family:'Playfair Display',serif;font-size:15px;color:white;font-weight:700}
+.topnav-links{display:flex;gap:20px}
+.topnav-links a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color 0.15s}
+.topnav-links a:hover{color:white}
+
+/* COVER */
+.cover{background:var(--navy);padding:48px 40px 36px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.025)}
+.cover-kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:14px}
+.cover-name{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;line-height:1.05;margin-bottom:10px;color:white}
+.cover-title{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,0.6);margin-bottom:24px;line-height:1.4}
+.cover-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:6px 14px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.7);letter-spacing:0.5px}
+.cover-links{display:flex;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)}
+.clink{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:8px 16px;font-size:12px;color:white;text-decoration:none;font-family:'IBM Plex Mono',monospace;transition:all 0.15s}
+.clink:hover{background:rgba(255,255,255,0.18)}
+.clink i{font-size:15px}
+
+/* SECTIONS */
+.section{padding:32px 40px}
+.section+.section{border-top:1px solid var(--border)}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--rust);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-heading{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:12px}
+.body{font-size:13.5px;color:var(--mid);line-height:1.75}
+.body+.body{margin-top:10px}
+
+/* FINDING */
+.finding-box{background:var(--navy);border-radius:12px;padding:28px 32px;margin:20px 0}
+.finding-quote{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:white;line-height:1.65;margin-bottom:20px;border-left:3px solid rgba(255,255,255,0.3);padding-left:18px}
+.chain{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.c-node{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:10px 18px;text-align:center}
+.c-flag{font-size:20px;display:block;margin-bottom:2px}
+.c-name{font-size:11px;color:white;font-weight:500;font-family:'IBM Plex Mono',monospace}
+.c-note{font-size:9px;color:rgba(255,255,255,0.4);margin-top:2px;font-family:'IBM Plex Mono',monospace}
+.c-arr{color:rgba(255,255,255,0.35);font-size:22px;font-weight:300}
+.c-cross{color:rgba(255,255,255,0.2);font-size:14px;font-family:'IBM Plex Mono',monospace;padding:10px;border:1px dashed rgba(255,255,255,0.1);border-radius:8px;font-style:italic}
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.stat{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 10px;text-align:center}
+.stat-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;line-height:1}
+.stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,0.4);margin-top:5px;line-height:1.3}
+
+/* PAPER CARD */
+.paper-card{background:white;border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin:14px 0}
+.paper-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;line-height:1.4}
+.paper-meta{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--lite);margin-bottom:12px}
+.paper-abs{font-size:12.5px;color:var(--mid);line-height:1.7;margin-bottom:14px}
+.methods-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.mtag{background:var(--parch);border:1px solid var(--border);border-radius:4px;padding:4px 9px;font-size:10px;font-family:'IBM Plex Mono',monospace;color:var(--navy)}
+
+/* TOOLS */
+.tool-card{border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:10px;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;background:white;transition:border-color 0.15s}
+.tool-card:hover{border-color:var(--navy)}
+.t-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ic-rust{background:#fcebeb;color:var(--rust)}
+.ic-navy{background:#e8edf5;color:var(--navy)}
+.ic-sage{background:#eaf3de;color:var(--sage)}
+.ic-plum{background:#f0eafc;color:var(--plum)}
+.tool-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.tool-url{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--lite);margin-bottom:8px}
+.tool-desc{font-size:12.5px;color:var(--mid);line-height:1.65}
+
+/* SKILLS TABLE */
+.sk-table{width:100%;border-collapse:collapse}
+.sk-table tr{border-bottom:1px solid var(--border)}
+.sk-table tr:last-child{border-bottom:none}
+.sk-table td{padding:8px 0;vertical-align:top;font-size:12.5px}
+.sk-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--navy);font-weight:500;padding-right:16px;width:120px;padding-top:9px}
+.sk-val{color:var(--mid);line-height:1.65}
+
+/* FUTURE */
+.future-card{background:white;border:1px solid var(--border);border-left:3px solid var(--rust);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:10px}
+.future-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--rust);margin-bottom:5px}
+.future-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.future-desc{font-size:12.5px;color:var(--mid);line-height:1.65}
+
+/* WRITING */
+.write-item{padding:16px 0;border-bottom:1px solid var(--border)}
+.write-item:last-child{border-bottom:none}
+.write-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.write-venue{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--lite);margin-bottom:8px}
+.write-excerpt{font-size:12.5px;color:var(--mid);font-style:italic;line-height:1.65;border-left:2px solid var(--border);padding-left:14px;margin-top:8px}
+
+/* POLICY TAGS */
+.ptags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.ptag{padding:5px 13px;border-radius:20px;font-size:11px;font-family:'IBM Plex Mono',monospace}
+.pt-n{background:#e8edf5;color:var(--navy)}
+.pt-r{background:#fcebeb;color:var(--rust)}
+.pt-s{background:#eaf3de;color:var(--sage)}
+.pt-p{background:#f0eafc;color:var(--plum)}
+.pt-g{background:#faeeda;color:var(--gold)}
+.pt-t{background:#e1f5ee;color:var(--teal)}
+
+/* POLICY INTEREST CARDS */
+.pi-card{background:white;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:8px}
+.pi-card-title{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:5px}
+.pi-card-body{font-size:12px;color:var(--mid);line-height:1.65}
+.pi-rust{border-left:3px solid var(--rust)}
+.pi-sage{border-left:3px solid var(--sage)}
+.pi-plum{border-left:3px solid var(--plum)}
+
+/* FOOTER */
+.footer{background:var(--navy);padding:24px 40px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;letter-spacing:0.5px}
+.footer span{color:rgba(255,255,255,0.65)}
+
+@media(max-width:600px){
+  .cover{padding:32px 20px 24px}
+  .section{padding:24px 20px}
+  .topnav{padding:12px 20px}
+  .stats-row{grid-template-columns:repeat(3,1fr)}
+  .chain{gap:6px}
+  .cover-name{font-size:34px}
+  .footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-name">Anuja A. Gokhale</div>
+  <div class="topnav-links">
+    <a href="#finding">Finding</a>
+    <a href="#paper">Paper</a>
+    <a href="#tools">Tools</a>
+    <a href="#agenda">Agenda</a>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-kicker">Research Portfolio · 2026</div>
+  <div class="cover-name">Anuja A. Gokhale</div>
+  <div class="cover-title">Applied Macroeconomics &amp; Monetary Policy<br>National University of Singapore · Merit Scholar</div>
+  <div class="cover-chips">
+    <span class="chip">EU Citizen · Irish Passport</span>
+    <span class="chip">Graduating July 2026</span>
+    <span class="chip">Available August 2026</span>
+    <span class="chip">Singapore / Europe / Remote</span>
+  </div>
+  <div class="cover-links">
+    <a href="https://ssrn.com/abstract=6514338" target="_blank" class="clink"><i class="ti ti-file-text"></i>SSRN Paper</a>
+    <a href="https://transmission-lens.lovable.app" target="_blank" class="clink"><i class="ti ti-chart-line"></i>Live Dashboard</a>
+    <a href="https://policy-terminal.streamlit.app" target="_blank" class="clink"><i class="ti ti-adjustments"></i>Policy Terminal</a>
+    <a href="mailto:anujagokhale1604@gmail.com" class="clink"><i class="ti ti-mail"></i>Contact</a>
+  </div>
+</div>
+
+<!-- RESEARCH IDENTITY -->
+<div class="section" id="identity">
+  <div class="sec-label">Research identity</div>
+  <div class="sec-heading">I study how economic shocks travel across borders — and what happens when they arrive.</div>
+  <div class="body">My research sits at the intersection of monetary economics, open economy macroeconomics, and international finance. I focus on how institutional frameworks shape the transmission and persistence of inflationary shocks across economies with different monetary policy designs.</div>
+  <div class="body">My current work asks a question that sounds simple but has a counterintuitive answer: when global inflation surges, where does it actually come from? The conventional narrative blamed advanced economy central banks. My evidence points upstream — toward emerging market supply dynamics that most commentary had not examined carefully.</div>
+  <div class="ptags">
+    <span class="ptag pt-n">Monetary Economics</span>
+    <span class="ptag pt-r">Inflation Dynamics</span>
+    <span class="ptag pt-s">Open Economy Macro</span>
+    <span class="ptag pt-p">Exchange Rate Policy</span>
+    <span class="ptag pt-g">Geoeconomics</span>
+    <span class="ptag pt-t">VAR Methods</span>
+  </div>
+</div>
+
+<!-- CENTRAL FINDING -->
+<div class="section" id="finding" style="background:var(--parch)">
+  <div class="sec-label">The central finding</div>
+  <div class="finding-box">
+    <div class="finding-quote">"India's CPI Granger-causes Singapore's inflation with a two-month lag (p = 0.028). Singapore's in turn Granger-causes the UK's (p = 0.039). Neither reverse direction holds. The transmission chain runs one way — emerging market supply dynamics lead the advanced economy inflation cycle."</div>
+    <div class="chain">
+      <div class="c-node">
+        <span class="c-flag">🇮🇳</span>
+        <div class="c-name">India CPI</div>
+        <div class="c-note">upstream driver</div>
+      </div>
+      <div class="c-arr">→</div>
+      <div class="c-node">
+        <span class="c-flag">🇸🇬</span>
+        <div class="c-name">Singapore CPI</div>
+        <div class="c-note">+2 months</div>
+      </div>
+      <div class="c-arr">→</div>
+      <div class="c-node">
+        <span class="c-flag">🇬🇧</span>
+        <div class="c-name">UK CPI</div>
+        <div class="c-note">downstream</div>
+      </div>
+      <div class="c-arr" style="color:rgba(255,255,255,0.15)">✗</div>
+      <div class="c-cross">reverse not significant</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-val">0.028</div><div class="stat-lbl">India → SG<br>p-value</div></div>
+      <div class="stat"><div class="stat-val">0.039</div><div class="stat-lbl">SG → UK<br>p-value</div></div>
+      <div class="stat"><div class="stat-val">0.99</div><div class="stat-lbl">UK inflation<br>persistence β</div></div>
+      <div class="stat"><div class="stat-val">0.97</div><div class="stat-lbl">SG inflation<br>persistence β</div></div>
+      <div class="stat"><div class="stat-val">1.5–2%</div><div class="stat-lbl">SG CPI forecast<br>Dec 2026</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKING PAPER -->
+<div class="section" id="paper">
+  <div class="sec-label">Working paper</div>
+  <div class="paper-card">
+    <div class="paper-title">Cross-Country Macroeconomic Dynamics: Inflation, Growth, and Monetary Policy — India, Singapore, and the United Kingdom</div>
+    <div class="paper-meta">Gokhale, Anuja A. (2026) · SSRN Working Paper · ssrn.com/abstract=6514338</div>
+    <div class="paper-abs">Examines how inflation dynamics, monetary policy frameworks, and growth cycles interacted across the post-pandemic period in three structurally distinct economies. Documents near-unit inflation persistence, an asymmetric cross-country Granger causality chain, structural VAR analysis, Johansen cointegration validation, and Diebold-Mariano out-of-sample forecasting. Extended VAR projection to December 2026 with direct policy implications for the MAS S$NEER framework.</div>
+    <div class="methods-wrap">
+      <span class="mtag">OLS persistence</span>
+      <span class="mtag">Pairwise Granger causality</span>
+      <span class="mtag">VAR(2) + Cholesky IRFs</span>
+      <span class="mtag">Johansen cointegration</span>
+      <span class="mtag">Diebold-Mariano test</span>
+      <span class="mtag">Extended VAR projection</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="section" id="tools" style="background:var(--parch)">
+  <div class="sec-label">Deployed research tools</div>
+  <div class="body" style="margin-bottom:16px">Three publicly accessible applications that translate research findings into live policy tools. Each demonstrates something different: communication, methodology, architecture.</div>
+
+  <a href="https://transmission-lens.lovable.app" target="_blank" style="text-decoration:none">
+    <div class="tool-card">
+      <div class="t-icon ic-rust"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+      <div>
+        <div class="tool-name">Macro Transmission Lab</div>
+        <div class="tool-url">transmission-lens.lovable.app ↗</div>
+        <div class="tool-desc">Live S$NEER intelligence dashboard. Rolling Granger causality tracker (India → Singapore signal), inflation persistence classifier, MAS policy timeline. Built in React for economists and policymakers.</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://policy-terminal.streamlit.app" target="_blank" style="text-decoration:none">
+    <div class="tool-card">
+      <div class="t-icon ic-navy"><i class="ti ti-adjustments" aria-hidden="true"></i></div>
+      <div>
+        <div class="tool-name">Policy Terminal</div>
+        <div class="tool-url">policy-terminal.streamlit.app ↗</div>
+        <div class="tool-desc">VAR-based FX shock simulator with Markov-switching regime detection, rolling 12-month forecast with 95% CI, and scenario stress-testing across three regimes. Python/Streamlit.</div>
+      </div>
+    </div>
+  </a>
+
+  <div class="tool-card" style="opacity:0.7">
+    <div class="t-icon ic-sage"><i class="ti ti-cloud-rain" aria-hidden="true"></i></div>
+    <div>
+      <div class="tool-name">The Monsoon Index</div>
+      <div class="tool-url">monsoon-index.streamlit.app · forthcoming</div>
+      <div class="tool-desc">Live upstream inflation signal tracker. Rolling Granger p-value, regime classification, extended CPI projection to December 2026. Named for the mechanism — Indian monsoon and harvest dynamics are the structural upstream driver.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <div class="sec-label">Technical toolkit</div>
+  <table class="sk-table">
+    <tr><td class="sk-label">Econometrics</td><td class="sk-val">VAR, SVAR, Granger causality, OLS, Johansen cointegration, Markov-switching, Diebold-Mariano, Cholesky IRFs, structural break detection</td></tr>
+    <tr><td class="sk-label">Programming</td><td class="sk-val">Python (Statsmodels, Pandas, Matplotlib, Streamlit, Plotly) · Stata · SQL · React/Lovable</td></tr>
+    <tr><td class="sk-label">Data</td><td class="sk-val">Bloomberg · MAS Statistics · RBI DBIE · ONS · World Bank WDI · Eurostat · CEIC (building)</td></tr>
+    <tr><td class="sk-label">Causal inference</td><td class="sk-val">Granger causality (applied) · DiD (theoretical, implementing) · IV regression (developing)</td></tr>
+    <tr><td class="sk-label">Languages</td><td class="sk-val">English (native) · Hindi (native) · Mandarin (functional) · German (beginner)</td></tr>
+  </table>
+</div>
+
+<!-- POLICY INTERESTS -->
+<div class="section" style="background:var(--parch)">
+  <div class="sec-label">Policy interests</div>
+  <div class="pi-card pi-rust">
+    <div class="pi-card-title">Exchange rate vs. interest rate regimes</div>
+    <div class="pi-card-body">Does Singapore's S$NEER framework offer a more targeted instrument for small open economies with high import dependence? The persistence differential (β = 0.97 vs 0.99) suggests it might — and the mechanism matters for ECB and BoE framework design.</div>
+  </div>
+  <div class="pi-card pi-sage">
+    <div class="pi-card-title">Upstream attribution of inflation</div>
+    <div class="pi-card-body">When emerging market supply dynamics lead the inflation cycle, advanced economy central banks may be treating a symptom rather than a cause. This has direct implications for how the ECB interprets Eurozone inflation persistence.</div>
+  </div>
+  <div class="pi-card pi-plum">
+    <div class="pi-card-title">Climate transition as macroeconomic risk</div>
+    <div class="pi-card-body">Transition shocks are supply-side shocks with persistent inflationary consequences — exactly the dynamics I study. How should monetary frameworks adapt as decarbonisation reshapes global commodity supply chains?</div>
+  </div>
+</div>
+
+<!-- FUTURE RESEARCH -->
+<div class="section" id="agenda">
+  <div class="sec-label">Future research agenda</div>
+  <div class="future-card">
+    <div class="future-num">Paper 2 · In progress</div>
+    <div class="future-title">Monetary Tightening and Creative Destruction: Firm Dynamics Across Policy Regimes</div>
+    <div class="future-desc">Does exchange-rate versus interest-rate tightening produce different patterns of firm exit, productivity dynamics, and sectoral reallocation? Using sector-level data from Singapore DOS and UK ONS with a DiD design around the 2021–2022 tightening episodes.</div>
+  </div>
+  <div class="future-card">
+    <div class="future-num">Paper 3 · Planned</div>
+    <div class="future-title">Forecast Error Variance Decomposition of Singapore CPI</div>
+    <div class="future-desc">Quantifying the proportion of Singapore's CPI forecast error variance attributable to India shocks versus UK/financial conditions versus domestic dynamics. A direct extension of the current VAR framework.</div>
+  </div>
+  <div class="future-card" style="border-left-color:var(--plum)">
+    <div class="future-num">Longer term</div>
+    <div class="future-title">Geoeconomic Fragmentation and Transmission Channel Stability</div>
+    <div class="future-desc">Does US-China decoupling and friend-shoring weaken or strengthen the India → Singapore → UK chain? As supply chains bifurcate, which transmission channels survive and which break?</div>
+  </div>
+</div>
+
+<!-- WRITING -->
+<div class="section" style="background:var(--parch)">
+  <div class="sec-label">Writing &amp; public communication</div>
+  <div class="write-item">
+    <div class="write-title">"The Wrong Villain"</div>
+    <div class="write-venue">Submitted to The Economist · Finance Writer position · 680 words · 2026</div>
+    <div class="write-excerpt">"The next inflationary episode may well begin in Mumbai, not Manhattan. Central bankers in advanced economies might do well to watch the monsoon."</div>
+  </div>
+  <div class="write-item">
+    <div class="write-title">What India's rate cut means for Singapore's inflation</div>
+    <div class="write-venue">Submitted: CNA Commentary · East Asia Forum · Business Times · 750 words · 2026</div>
+    <div class="write-excerpt">A policy commentary with a testable prediction: India's April 2026 rate cut will produce measurable Singapore CPI moderation by June–July 2026, based on the two-month Granger transmission lag.</div>
+  </div>
+  <div class="write-item">
+    <div class="write-title">The Applied Life</div>
+    <div class="write-venue">Substack · Economics and philosophy · 2026–present</div>
+    <div class="write-excerpt">Essays merging macroeconomic frameworks with personal narrative. First essay on structural breaks received broad reader response for making econometric concepts genuinely human.</div>
+  </div>
+</div>
+
+<div class="footer">
+  <div>Anuja A. Gokhale · Research Portfolio · May 2026</div>
+  <div><span>ssrn.com/abstract=6514338</span> · <span>transmission-lens.lovable.app</span></div>
+</div>
+
+</div>
+</body>
+</html>
