@@ -40,8 +40,13 @@ nav{background:var(--navy);padding:0 40px;display:flex;justify-content:space-bet
 .hero-name{font-family:'Playfair Display',serif;font-size:64px;font-weight:700;line-height:1.0;color:white;margin-bottom:8px}
 .hero-name span{color:var(--rust)}
 .hero-role{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:2px;text-transform:uppercase;margin-bottom:40px}
-.hero-thesis{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.55;max-width:600px;margin-bottom:16px;border-left:3px solid var(--rust);padding-left:20px}
-.hero-thesis-attr{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;padding-left:23px;margin-bottom:40px}
+
+/* ROTATING QUOTE */
+.hero-quote-wrap{position:relative;min-height:110px;margin-bottom:16px;max-width:620px}
+.hero-thesis{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.55;border-left:3px solid var(--rust);padding-left:20px;position:absolute;top:0;left:0;right:0;opacity:0;transition:opacity 0.8s ease-in-out}
+.hero-thesis.active{opacity:1}
+.hero-thesis-attr{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;padding-left:23px;margin-bottom:40px;min-height:14px;transition:opacity 0.8s}
+
 .hero-links{display:flex;gap:10px;flex-wrap:wrap}
 .hlink{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:9px 18px;font-size:11px;color:rgba(255,255,255,0.8);text-decoration:none;font-family:'IBM Plex Mono',monospace;letter-spacing:0.5px;transition:all 0.15s}
 .hlink:hover{background:rgba(255,255,255,0.14);color:white}
@@ -50,9 +55,16 @@ nav{background:var(--navy);padding:0 40px;display:flex;justify-content:space-bet
 .hlink.primary:hover{background:#a83d20}
 
 /* TICKER */
-.ticker{background:var(--ink);padding:10px 40px;display:flex;gap:32px;overflow:hidden;white-space:nowrap}
-.tick{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px}
+.ticker-wrap{background:var(--ink);padding:0;overflow:hidden;height:36px;display:flex;align-items:center}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker-scroll 40s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.tick{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;padding:0 32px;border-right:1px solid rgba(255,255,255,0.08)}
 .tick span{color:var(--rust)}
+
+@keyframes ticker-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
 
 /* LAYOUT */
 .page{max-width:800px;margin:0 auto;padding:0 0 80px}
@@ -85,6 +97,7 @@ nav{background:var(--navy);padding:0 40px;display:flex;justify-content:space-bet
 .paper-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
 .paper-meta{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--lite);margin-bottom:10px}
 .paper-abs{font-size:12.5px;color:var(--mid);line-height:1.7}
+.paper-status.review{color:#7a6a00}
 
 /* TOOLS */
 .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
@@ -99,7 +112,6 @@ nav{background:var(--navy);padding:0 40px;display:flex;justify-content:space-bet
 .tool-url{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--lite);margin-bottom:8px;letter-spacing:0.5px}
 .tool-desc{font-size:12px;color:var(--mid);line-height:1.6}
 .tool-tag{display:inline-block;background:rgba(196,82,46,0.08);border:1px solid rgba(196,82,46,0.2);border-radius:3px;padding:2px 8px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--rust);margin-top:8px;letter-spacing:0.5px}
-
 
 /* WRITING */
 .write-item{padding:18px 0;border-bottom:1px solid var(--border)}
@@ -122,12 +134,6 @@ nav{background:var(--navy);padding:0 40px;display:flex;justify-content:space-bet
 .pi-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:white;margin-bottom:6px;line-height:1.3}
 .pi-desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6}
 
-/* FUTURE PAPERS */
-.future-card{border-left:3px solid var(--rust);padding:14px 18px;margin-bottom:12px;background:white;border-radius:0 6px 6px 0}
-.future-num{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--rust);letter-spacing:2px;margin-bottom:4px}
-.future-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.future-desc{font-size:12px;color:var(--mid);line-height:1.6}
-
 /* FOOTER */
 footer{background:var(--ink);padding:32px 40px;text-align:center}
 .footer-name{font-family:'Playfair Display',serif;font-size:18px;color:white;margin-bottom:6px}
@@ -143,7 +149,7 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
   nav{padding:0 20px}
   .tools-grid{grid-template-columns:1fr}
   .agenda-grid{grid-template-columns:1fr}
-  .ticker{padding:10px 20px}
+  .ticker-wrap{padding:10px 20px}
   footer{padding:32px 20px}
 }
 </style>
@@ -167,30 +173,55 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
     <div class="hero-kicker">Research Portfolio</div>
     <div class="hero-name">Anuja<br><span>Gokhale.</span></div>
     <div class="hero-role">Economist &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Occasionally Unhinged</div>
-    <div class="hero-thesis">"The inflation pipe had changed direction. India's prices today predict Singapore's two months from now. Singapore's predict the UK's. The pipe runs east to west — not west to east like everyone assumed."</div>
-    <div class="hero-thesis-attr">GOKHALE (2026) · SSRN WORKING PAPER · p = 0.028</div>
+
+    <div class="hero-quote-wrap" id="quoteWrap">
+      <div class="hero-thesis active" id="q0">"The inflation pipe had changed direction. India's prices today predict Singapore's two months from now. Singapore's predict the UK's. The pipe runs east to west — not west to east like everyone assumed."</div>
+      <div class="hero-thesis" id="q1">"The distributional consequences of monetary tightening are not symmetric. Singapore's exchange rate channel preserved real wages. The UK's interest rate channel compressed them. The instrument matters as much as the intention."</div>
+      <div class="hero-thesis" id="q2">"XFE and T15 both fail the upstream contamination check. India's wholesale prices contaminate Singapore's so-called core measures before MAS ever raises a policy flag. The signal was already in the noise."</div>
+      <div class="hero-thesis" id="q3">"Everyone watches the Fed. Nobody watches the dollar. But the dollar is already everywhere — in every commodity contract, every trade invoice, every import price. By the time central banks react, the dollar has already done the work."</div>
+    </div>
+    <div class="hero-thesis-attr" id="quoteAttr">GOKHALE (2026) · SSRN WORKING PAPER · p = 0.028</div>
+
     <div class="hero-links">
-      <a href="https://ssrn.com/abstract=6514338" target="_blank" class="hlink primary"><i class="ti ti-file-text"></i>Paper 1 — SSRN</a>
-      <a href="https://ssrn.com/abstract=6847179" target="_blank" class="hlink"><i class="ti ti-file-text"></i>Paper 2 — SSRN</a>
+      <a href="https://ssrn.com/abstract=6514338" target="_blank" class="hlink primary"><i class="ti ti-file-text"></i>Paper 1 · SSRN</a>
+      <a href="https://ssrn.com/abstract=6847179" target="_blank" class="hlink"><i class="ti ti-file-text"></i>Paper 2 · SSRN</a>
+      <a href="https://ssrn.com/abstract=7118139" target="_blank" class="hlink"><i class="ti ti-file-text"></i>Paper 3 · SSRN</a>
       <a href="https://monsoon-index.streamlit.app" target="_blank" class="hlink"><i class="ti ti-cloud-rain"></i>Monsoon Index</a>
       <a href="https://pink-panther-inflation.streamlit.app" target="_blank" class="hlink"><i class="ti ti-currency-dollar"></i>Pink Panther</a>
       <a href="https://github.com/anujagokhale1604" target="_blank" class="hlink"><i class="ti ti-brand-github"></i>GitHub</a>
-      <a href="https://anujagokhale1604.github.io/anujagokhale.github.io/" target="_blank" class="hlink"><i class="ti ti-world"></i>Portfolio</a>
     </div>
   </div>
 </div>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="tick">India CPI → Singapore CPI &nbsp;<span>p = 0.028 ✓</span></div>
-  <div class="tick">Singapore CPI → UK CPI &nbsp;<span>p = 0.039 ✓</span></div>
-  <div class="tick">DXY → SG CPI (DCP) &nbsp;<span>0.37</span></div>
-  <div class="tick">DXY → UK CPI (DCP) &nbsp;<span>0.32</span></div>
-  <div class="tick">India persistence β &nbsp;<span>0.9526</span></div>
-  <div class="tick">Singapore persistence β &nbsp;<span>0.9693</span></div>
-  <div class="tick">UK persistence β &nbsp;<span>0.9876</span></div>
-  <div class="tick">SSRN Papers &nbsp;<span>2 published</span></div>
-  <div class="tick">Live apps &nbsp;<span>7 deployed</span></div>
+<!-- TICKER (loops infinitely) -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="tickerTrack">
+    <div class="tick">India CPI <span>Granger-causes</span> Singapore CPI &nbsp;<span>p = 0.028 ✓</span></div>
+    <div class="tick">Singapore CPI <span>Granger-causes</span> UK CPI &nbsp;<span>p = 0.039 ✓</span></div>
+    <div class="tick">DXY to SG CPI (DCP) &nbsp;<span>0.37</span></div>
+    <div class="tick">DXY to UK CPI (DCP) &nbsp;<span>0.32</span></div>
+    <div class="tick">India inflation persistence &nbsp;<span>0.9526</span></div>
+    <div class="tick">Singapore inflation persistence &nbsp;<span>0.9693</span></div>
+    <div class="tick">UK inflation persistence &nbsp;<span>0.9876</span></div>
+    <div class="tick">SSRN Working Papers &nbsp;<span>3 published</span></div>
+    <div class="tick">Live Research Tools &nbsp;<span>8 deployed</span></div>
+    <div class="tick">Singapore real wage (2022-2025) &nbsp;<span>+7.7% cumulative</span></div>
+    <div class="tick">UK real wage (2022-2023) &nbsp;<span>negative 2 consecutive years</span></div>
+    <div class="tick">XFE and T15 &nbsp;<span>fail upstream contamination check</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="tick">India CPI <span>Granger-causes</span> Singapore CPI &nbsp;<span>p = 0.028 ✓</span></div>
+    <div class="tick">Singapore CPI <span>Granger-causes</span> UK CPI &nbsp;<span>p = 0.039 ✓</span></div>
+    <div class="tick">DXY to SG CPI (DCP) &nbsp;<span>0.37</span></div>
+    <div class="tick">DXY to UK CPI (DCP) &nbsp;<span>0.32</span></div>
+    <div class="tick">India inflation persistence &nbsp;<span>0.9526</span></div>
+    <div class="tick">Singapore inflation persistence &nbsp;<span>0.9693</span></div>
+    <div class="tick">UK inflation persistence &nbsp;<span>0.9876</span></div>
+    <div class="tick">SSRN Working Papers &nbsp;<span>3 published</span></div>
+    <div class="tick">Live Research Tools &nbsp;<span>8 deployed</span></div>
+    <div class="tick">Singapore real wage (2022-2025) &nbsp;<span>+7.7% cumulative</span></div>
+    <div class="tick">UK real wage (2022-2023) &nbsp;<span>negative 2 consecutive years</span></div>
+    <div class="tick">XFE and T15 &nbsp;<span>fail upstream contamination check</span></div>
+  </div>
 </div>
 
 <div class="page">
@@ -212,7 +243,7 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
         <div style="font-size:12px;color:var(--lite)">MIT World Peace University · Bronze Medallist · 9.9/10</div>
       </div>
     </div>
-    My research sits at the intersection of monetary economics, open economy macroeconomics, and international finance. I focus on how institutional frameworks shape the transmission and persistence of inflationary shocks. I also build things — five live deployed tools that put the research in motion. Available immediately. Irish citizen (EU passport).
+    My research sits at the intersection of monetary economics, open economy macroeconomics, and international finance. I focus on how institutional frameworks shape the transmission and persistence of inflationary shocks. I also build things: eight live deployed tools that put the research in motion. Available immediately. Irish citizen (EU passport).
   </div>
   <div class="about-chips">
     <div class="chip">Open Economy Macro</div>
@@ -226,11 +257,11 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
 
 <!-- RESEARCH -->
 <div class="section parch" id="research">
-  <div class="sec-eyebrow">Research & Publications</div>
+  <div class="sec-eyebrow">Research &amp; Publications</div>
 
   <div class="finding">
     <div class="finding-label">Core Finding</div>
-    <div class="finding-quote">"India's CPI Granger-causes Singapore's inflation with a two-month lag (p = 0.028). Singapore's in turn Granger-causes the UK's (p = 0.039). Neither reverse direction holds. The transmission chain runs one way — emerging market supply dynamics lead the advanced economy inflation cycle. The pipe ran the other way."</div>
+    <div class="finding-quote">"India's CPI Granger-causes Singapore's inflation with a two-month lag (p = 0.028). Singapore's in turn Granger-causes the UK's (p = 0.039). Neither reverse direction holds. The transmission chain runs one way: emerging market supply dynamics lead the advanced economy inflation cycle."</div>
   </div>
 
   <a href="https://ssrn.com/abstract=6514338" target="_blank" style="text-decoration:none">
@@ -238,19 +269,18 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
       <div class="paper-status">Published · SSRN Working Paper · Version 2 · 2026</div>
       <div class="paper-title">Cross-Country Macroeconomic Dynamics: Inflation, Growth, and Monetary Policy — India, Singapore, and the United Kingdom</div>
       <div class="paper-meta">Gokhale, A.A. (2026) · ssrn.com/abstract=6514338</div>
-      <div class="paper-abs">Documents asymmetric Granger causality chain India to Singapore to UK (p = 0.028). Sectoral decomposition identifies Fuel and Light and Core manufactured goods as the transmission mechanism — not food prices — consistent with the Dominant Currency Paradigm. Episode-specific analysis reveals the India to Singapore link activates during supply-driven inflationary regimes. Employs VAR(2), Johansen cointegration, Markov-switching, and Diebold-Mariano forecasting.</div>
+      <div class="paper-abs">Documents asymmetric Granger causality chain India to Singapore to UK (p = 0.028). Sectoral decomposition identifies Fuel and Light and Core manufactured goods as the transmission mechanism, consistent with the Dominant Currency Paradigm. Episode-specific analysis reveals the India to Singapore link activates during supply-driven inflationary regimes. Employs VAR(2), Johansen cointegration, Markov-switching, and Diebold-Mariano forecasting.</div>
     </div>
   </a>
 
   <a href="https://ssrn.com/abstract=6847179" target="_blank" style="text-decoration:none">
     <div class="paper">
       <div class="paper-status">Published · SSRN Working Paper · 2026</div>
-      <div class="paper-title">Measuring Core Inflation for Monetary Policy in Singapore: Replication and Extension of Roger & Xiong (2025)</div>
+      <div class="paper-title">Measuring Core Inflation for Monetary Policy in Singapore: Replication and Extension of Roger &amp; Xiong (2025)</div>
       <div class="paper-meta">Gokhale, A.A. (2026) · ssrn.com/abstract=6847179 · MAS Staff Paper No. 2025/1</div>
       <div class="paper-abs">Full replication of six core inflation measures from publicly available SingStat data. Four original extensions: structural break analysis (Chow test, 2021), real-time Diebold-Mariano forecasting horse race, novel India upstream contamination test, and Phillips curve augmentation. Finds XFE and T15 fail the upstream contamination check.</div>
     </div>
   </a>
-
 
   <a href="https://ssrn.com/abstract=7118139" target="_blank" style="text-decoration:none">
     <div class="paper">
@@ -262,6 +292,13 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
   </a>
 
   <div class="paper">
+    <div class="paper-status review">Under Review · SSRN Working Paper · 2026</div>
+    <div class="paper-title">The Weight of Migration: Skilled Emigration, Monetary Contraction, and Household Credit in India</div>
+    <div class="paper-meta">Gokhale, A.A. (2026) · Submitted · Under Review</div>
+    <div class="paper-abs">Examines how skilled emigration from Indian districts interacts with monetary policy transmission through household credit channels. Uses a difference-in-differences design with Coarsened Exact Matching across 600+ districts. Key finding: a one standard deviation increase in skilled outmigration reduces household credit growth by 4.2 percentage points following monetary tightening. Identification exploits the asymmetric reach of RBI rate decisions across demographically distinct districts.</div>
+  </div>
+
+  <div class="paper">
     <div class="paper-title">Financial Wellbeing as a Factor of Digital Literacy, Financial Literacy, and Digital Risk</div>
     <div class="paper-meta">Gokhale, A.A. (2024) · MIT World Peace University · PLS-SEM, SPSS</div>
     <div class="paper-abs">Structural equation modelling (PLS-SEM) examining relationships between digital literacy, financial literacy, digital risk, and financial wellbeing across a sample of young adults.</div>
@@ -271,7 +308,7 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
 <!-- TOOLS -->
 <div class="section" id="tools">
   <div class="sec-eyebrow">Deployed Research Tools</div>
-  <div style="font-size:13px;color:var(--mid);margin-bottom:20px">Seven publicly accessible applications. Each puts a research question in motion.</div>
+  <div style="font-size:13px;color:var(--mid);margin-bottom:20px">Eight publicly accessible applications. Each puts a research question in motion.</div>
 
   <div class="tools-grid">
 
@@ -312,7 +349,6 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
       <div class="tool-desc">India macroeconomic intelligence terminal. Policy rate vs Taylor Rule, FX transmission analysis, monetary policy scenario engine with severity controls.</div>
     </a>
 
-  </div>
     <a href="https://mas-policy-dataset.streamlit.app" target="_blank" class="tool-card">
       <div class="tool-icon">🇸🇬</div>
       <div class="tool-name">MAS Policy Stance Dataset</div>
@@ -320,12 +356,12 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
       <div class="tool-desc">Open-access structured dataset classifying all 55 MAS S$NEER monetary policy decisions (2001-2026) by slope, width, centring, and hawkishness score. Interactive dashboard with filterable browse table and CSV download.</div>
     </a>
 
-    <a href="https://dollar-death-watch.streamlit.app" target="_blank" class="tool-card">
-      <div class="tool-icon">💵</div>
-      <div class="tool-name">Dollar Death Watch</div>
-      <div class="tool-url">dollar-death-watch.streamlit.app ↗</div>
+    <a href="https://the-multipolar-money-monitor.streamlit.app" target="_blank" class="tool-card">
+      <div class="tool-icon">🌐</div>
+      <div class="tool-name">The Multipolar Money Monitor</div>
+      <div class="tool-url">the-multipolar-money-monitor.streamlit.app ↗</div>
       <div class="tool-desc">Live tracker of de-dollarisation signals across IMF COFER reserve composition, central bank gold purchases, BRICS trade settlement, and DXY. Companion to research on the Dominant Currency Paradigm.</div>
-      <div class="tool-tag">New · Aug 2026</div>
+      <div class="tool-tag">Updated · Oct 2026</div>
     </a>
 
     <a href="https://cb-sentiment-analyser.streamlit.app" target="_blank" class="tool-card">
@@ -337,6 +373,7 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
     </a>
 
   </div>
+</div>
 
 <!-- WRITING -->
 <div class="section parch" id="writing">
@@ -346,19 +383,19 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
   <div class="write-item">
     <div class="write-venue">Policy Essay · Seeking publication · 850 words · 2026</div>
     <div class="write-title">"Mumbai's Monsoon and the Myth of Western Inflation"</div>
-    <div class="write-excerpt">"The inflation pipe had changed direction. While policymakers in Washington, London, and Frankfurt were watching their own labour markets, pressure was building in Indian energy and manufacturing supply chains and flowing westward. The pipe ran east to west — not west to east like everyone assumed."</div>
+    <div class="write-excerpt">"The inflation pipe had changed direction. While policymakers in Washington, London, and Frankfurt were watching their own labour markets, pressure was building in Indian energy and manufacturing supply chains and flowing westward. The pipe ran east to west, not west to east like everyone assumed."</div>
   </div>
 
   <div class="write-item">
     <div class="write-venue">Policy Essay · Submitted to Bruegel · 900 words · 2026</div>
     <div class="write-title">"The Green Bow on the Same Old Box"</div>
-    <div class="write-excerpt">"We packaged consumerism in a green bow and sold it as a gift to the world. The climate transition has not eliminated commodity-driven inflation — it has rewired it. Black gold is being replaced by green gold, and the transmission chains have shifted."</div>
+    <div class="write-excerpt">"We packaged consumerism in a green bow and sold it as a gift to the world. The climate transition has not eliminated commodity-driven inflation, it has rewired it. Black gold is being replaced by green gold, and the transmission chains have shifted."</div>
   </div>
 
   <div class="write-item">
     <div class="write-venue">Policy Essay · In preparation · 2026</div>
     <div class="write-title">"The Pink Panther's Inflation"</div>
-    <div class="write-excerpt">"Everyone watches the Fed. Nobody watches the dollar. But the dollar is already everywhere — in every commodity contract, every trade invoice, every import price. By the time central banks react, the dollar has already done the work."</div>
+    <div class="write-excerpt">"Everyone watches the Fed. Nobody watches the dollar. But the dollar is already everywhere, in every commodity contract, every trade invoice, every import price. By the time central banks react, the dollar has already done the work."</div>
   </div>
 </div>
 
@@ -366,10 +403,10 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
 <div class="section" id="skills">
   <div class="sec-eyebrow">Technical Toolkit</div>
   <table class="sk-table">
-    <tr><td class="sk-label">Methods</td><td class="sk-val">VAR · Granger causality · Johansen cointegration · Markov-switching · Diebold-Mariano · Chow structural break · OLS · Phillips curve · HP-filter · IV regression</td></tr>
-    <tr><td class="sk-label">Software</td><td class="sk-val">Python (Statsmodels, Pandas, Plotly, Streamlit, Requests) · Stata · SPSS (PLS-SEM) · SQL · Excel (advanced)</td></tr>
-    <tr><td class="sk-label">Data</td><td class="sk-val">FRED · Bloomberg · Eurostat · SingStat · World Bank WDI · RBI DBIE · ONS · CEIC</td></tr>
-    <tr><td class="sk-label">Building</td><td class="sk-val">7 deployed Streamlit apps · Multi-source API pipelines · GitHub · Streamlit Cloud</td></tr>
+    <tr><td class="sk-label">Methods</td><td class="sk-val">VAR, Granger causality, Johansen cointegration, Markov-switching, Diebold-Mariano, Chow structural break, OLS, Phillips curve, HP-filter, IV regression, DiD, synthetic control, CEM matching, FinBERT NLP</td></tr>
+    <tr><td class="sk-label">Software</td><td class="sk-val">Python (Statsmodels, Pandas, Plotly, Streamlit, Transformers) · Stata · SPSS (PLS-SEM) · SQL · Excel (advanced)</td></tr>
+    <tr><td class="sk-label">Data</td><td class="sk-val">FRED, Bloomberg, Eurostat, SingStat, World Bank WDI, RBI DBIE, ONS, CEIC, IMF COFER, BIS, World Gold Council</td></tr>
+    <tr><td class="sk-label">Building</td><td class="sk-val">8 deployed Streamlit apps, multi-source API pipelines, GitHub, Streamlit Cloud</td></tr>
     <tr><td class="sk-label">Languages</td><td class="sk-val">English (native) · Hindi (native) · Marathi (native) · German (beginner)</td></tr>
   </table>
 </div>
@@ -390,6 +427,16 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
       <div class="pi-title">Monetary Policy and Firm Dynamics</div>
       <div class="pi-desc">Does the instrument of monetary tightening — exchange rate versus interest rate — determine which firms exit and which survive? Singapore and the UK tightened simultaneously but through different mechanisms. The micro consequences remain unexplored.</div>
     </div>
+    <div class="pi-card">
+      <div class="pi-num">Interest 03</div>
+      <div class="pi-title">State-Dependent Monetary Effectiveness</div>
+      <div class="pi-desc">Replicating Zanetti et al. (CFM-DP2026-10): does monetary policy lose traction during global supply chain disruptions? Extending the threshold VAR framework to the Asian corridor to test whether the state dependence result holds outside the Euro Area.</div>
+    </div>
+    <div class="pi-card">
+      <div class="pi-num">Interest 04</div>
+      <div class="pi-title">Migration and Monetary Transmission</div>
+      <div class="pi-desc">Skilled emigration shapes the household credit channel through which monetary policy operates. The brain drain paper documents this at district level across 600+ Indian districts. Extensions to remittance flows and local labour market adjustment are in progress.</div>
+    </div>
   </div>
 </div>
 
@@ -408,6 +455,46 @@ footer{background:var(--ink);padding:32px 40px;text-align:center}
     <a href="https://linkedin.com/in/anuja-gokhale-4653131b5" target="_blank" class="flink">LinkedIn</a>
   </div>
 </footer>
+
+<script>
+// Rotating hero quotes
+const quotes = [
+  {
+    text: '"The inflation pipe had changed direction. India\'s prices today predict Singapore\'s two months from now. Singapore\'s predict the UK\'s. The pipe runs east to west — not west to east like everyone assumed."',
+    attr: 'GOKHALE (2026) · PAPER 1 · SSRN · p = 0.028'
+  },
+  {
+    text: '"The distributional consequences of monetary tightening are not symmetric. Singapore\'s exchange rate channel preserved real wages. The UK\'s interest rate channel compressed them. The instrument matters as much as the intention."',
+    attr: 'GOKHALE (2026) · PAPER 3 · SSRN · DiD ESTIMATE'
+  },
+  {
+    text: '"XFE and T15 both fail the upstream contamination check. India\'s wholesale prices contaminate Singapore\'s so-called core measures before MAS ever raises a policy flag. The signal was already in the noise."',
+    attr: 'GOKHALE (2026) · PAPER 2 · SSRN · REPLICATION + EXTENSION'
+  },
+  {
+    text: '"Everyone watches the Fed. Nobody watches the dollar. But the dollar is already everywhere — in every commodity contract, every trade invoice, every import price. By the time central banks react, the dollar has already done the work."',
+    attr: 'GOKHALE (2026) · DOMINANT CURRENCY PARADIGM · PINK PANTHER TOOL'
+  }
+];
+
+let current = 0;
+const els = document.querySelectorAll('.hero-thesis');
+const attrEl = document.getElementById('quoteAttr');
+
+function rotateQuote() {
+  els[current].classList.remove('active');
+  current = (current + 1) % quotes.length;
+  els[current].classList.add('active');
+  attrEl.style.opacity = '0';
+  setTimeout(() => {
+    attrEl.textContent = quotes[current].attr;
+    attrEl.style.opacity = '1';
+  }, 400);
+}
+
+setInterval(rotateQuote, 5000);
+attrEl.style.transition = 'opacity 0.4s';
+</script>
 
 </body>
 </html>
